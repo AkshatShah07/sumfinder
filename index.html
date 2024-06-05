@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title> Sum Finder Application</title>
+        <style>
+            *{font-size: 40px;}
+            body{background-color:rgba(10, 77, 246, 0.493);}
+            .btn{background-color: rgb(205, 1, 251); color: rgb(192, 16, 16); border-radius: 20px; margin-left: 50px;}
+            .btn:hover{color: rgb(6, 251, 38);}
+        </style>
+    </head>
+<body>
+    <center>
+        <h1>Sum Finder</h1>
+        <form onsubmit="sumfinder()">
+            <input type="number" placeholder="Enter Integer" id="num"/>
+            <br><br>
+            <input type="submit" value="M1" class="btn"/>
+            <input type="submit" value="M2" class="btn"/>
+            <input type="submit" value="M3" class="btn"/>
+        </form>
+
+        <h2 id="msg">
+            <script>
+                function sumfinder(){
+                    event.preventDefault()
+                    let num = document.getElementById("num");
+                    let msg = document.getElementById("msg");
+                    
+                    if (num.value == "")
+                    {
+                        alert("You did not enter +ive integer")
+                        msg.innerHTML = "";
+                        num.focus();
+                        return;
+                    }
+                    
+                    let ele = document.activeElement.value;
+                    let ans = "";
+                    let n = parseFloat(num.value)
+
+                    if (n<0)
+                    {
+                        alert("Enter positive integer")
+                        msg.innerHTML = "";
+                        num.focus();
+                        return;
+                    }
+                    if (ele=="M1")
+                    {
+                        let sum =0; i=1;
+                        while(i<=n)
+                        {
+                            sum += i;
+                            i++;
+                        }
+                        ans = "sum = " + sum;
+                        msg.innerHTML = "M1 --> " + ans;
+                    }
+
+                    else if (ele=="M2")
+                    {
+                        let sum=0,i=1;
+                        do
+                        {
+                            sum += i;
+                            i++;
+                        } while(i<=n);
+
+                        ans = "sum = " + sum;
+                        msg.innerHTML = "M2 --> " + ans;
+                    }
+
+                    else if (ele=="M3")
+                    {
+                        let sum=0
+                        for(let i =1;i<=n;i++)
+                            sum = sum + i
+                        ans = "sum = " + sum
+                        msg.innerHTML = "M3 --> " + ans;
+                    }
+                }
+            </script>
+        </h2>
+
+    <center>
+</body>
+</html>
